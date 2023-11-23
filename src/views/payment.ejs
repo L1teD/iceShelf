@@ -1,0 +1,49 @@
+<%- include('../public/partials/head.ejs') %>
+<section class="main-app bg-dark-black text-light">
+    <%- include('../public/partials/frame.ejs') %> 
+    <div class="d-flex justify-content-center align-items-center" style="height: 100%;">
+        <form style="width: 22rem;" action="/pay" method="post">
+            <!-- Card Number input -->
+            <div class="form-outline mb-4">
+                <input type="text" id="input1" name="cardNumber" class="form-control">
+                <label class="form-label" for="input1" style="margin-left: 0px;">Номер карты</label>
+            <div class="form-notch"><div class="form-notch-leading" style="width: 9px;"></div><div class="form-notch-middle" style="width: 140.8px;"></div><div class="form-notch-trailing"></div></div></div>
+    
+            <!-- Cardholder's Name input -->
+            <div class="form-outline mb-4">
+                <input type="text" id="input2" name="cardholderName" class="form-control">
+                <label class="form-label" for="input2" style="margin-left: 0px;">Имя владельца</label>
+            <div class="form-notch"><div class="form-notch-leading" style="width: 9px;"></div><div class="form-notch-middle" style="width: 108.8px;"></div><div class="form-notch-trailing"></div></div></div>
+    
+            <!-- Expiry Date input -->
+            <div class="form-outline mb-4">
+                <input type="text" id="input3" name="expiryDate" class="form-control">
+                <label class="form-label" for="input3" style="margin-left: 0px;">Срок действия</label>
+            <div class="form-notch"><div class="form-notch-leading" style="width: 9px;"></div><div class="form-notch-middle" style="width: 128.8px;"></div><div class="form-notch-trailing"></div></div></div>
+    
+            <!-- CVV input -->
+            <select class="form-select" aria-label="Default select example">
+                <option selected>Выберите город</option>
+                <option value="1">Якутск</option>
+                <option value="2">Тында</option>
+                <option value="3">Нерюнгри</option>
+                <option value="3">Иенгра</option>
+                <option value="3">Three</option>
+                <option value="3">Three</option>
+                <option value="3">Three</option>
+                <option value="3">Three</option>
+                <option value="3">Three</option>
+            </select>
+
+            <!-- Amount input -->
+            <div class="form-outline mb-4">
+                <input type="text" id="input5" name="amount" class="form-control">
+                <label class="form-label" for="input5" style="margin-left: 0px;">Сумма</label>
+            <div class="form-notch"><div class="form-notch-leading" style="width: 9px;"></div><div class="form-notch-middle" style="width: 98.8px;"></div><div class="form-notch-trailing"></div></div></div>
+    
+            <!-- Submit button -->
+            <button type="submit" class="btn btn-primary btn-block mb-4 w-100">Отправить</button>
+        </form>
+    </div>
+</section>   
+<%- include('../public/partials/footer.ejs') %>

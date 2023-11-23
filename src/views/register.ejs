@@ -1,0 +1,67 @@
+<%- include('../public/partials/head.ejs') %>
+<section class="main-app bg-dark-black text-light">
+    <%- include('../public/partials/frame.ejs') %> 
+    <div class="d-flex justify-content-center align-items-center" style="height: 100%;">
+        <form style="width: 22rem;" action="/sendReg" method="post">
+            <!-- Username input -->
+            <div class="form-outline mb-4">
+                <input type="text" id="form2Example1" name="login" class="form-control">
+                <label class="form-label" for="form2Example1" style="margin-left: 0px;">Логин</label>
+            <div class="form-notch"><div class="form-notch-leading" style="width: 9px;"></div><div class="form-notch-middle" style="width: 88.8px;"></div><div class="form-notch-trailing"></div></div></div>
+    
+             <!-- Email input -->
+             <div class="form-outline mb-4">
+                <input type="email" id="input3" name="email" class="form-control">
+                <label class="form-label" for="input3" style="margin-left: 0px;">Эл. почта</label>
+            <div class="form-notch"><div class="form-notch-leading" style="width: 9px;"></div><div class="form-notch-middle" style="width: 64.8px;"></div><div class="form-notch-trailing"></div></div></div>
+
+            <!-- Password input -->
+            <div class="form-outline mb-4">
+                <input type="password" id="input1" name="password" class="form-control">
+                <label class="form-label" for="input1" style="margin-left: 0px;">Пароль</label>
+            <div class="form-notch"><div class="form-notch-leading" style="width: 9px;"></div><div class="form-notch-middle" style="width: 64.8px;"></div><div class="form-notch-trailing"></div></div></div>
+
+            <!-- Password input -->
+            <div class="form-outline mb-0">
+                <input type="password" id="input2" class="form-control">
+                <label class="form-label" for="input2" style="margin-left: 0px;">Повторите пароль</label>
+            <div class="form-notch"><div class="form-notch-leading" style="width: 9px;"></div><div class="form-notch-middle" style="width: 64.8px;"></div><div class="form-notch-trailing"></div></div></div>
+                
+            <p class="text-danger mb-3 p-0" id="error"></p>
+
+            <!-- 2 column grid layout for inline styling -->
+            <div class="row">
+                <div class="col d-flex justify-content-center">
+            </div>
+            </div>
+    
+            <!-- Submit button -->
+            <button type="submit" class="btn btn-primary btn-block mb-4 w-100">Зарегистрироваться</button>
+    
+            <!-- Register buttons -->
+            <div class="text-center">
+                <p>Уже есть аккаунт? <a href="/login">Войти</a></p>
+            </div>
+        </form>
+    </div>
+</section>
+<script>
+    const inp1 = document.getElementById('input1')
+    const inp2 = document.getElementById('input2')
+
+    inp1.addEventListener('input', function (evt) {
+        if (document.getElementById('input1').value != document.getElementById('input2').value) {
+            document.getElementById('error').innerText = "Пароли не совпадают"
+        } else {
+            document.getElementById('error').innerText = ""
+        }
+    })
+    inp2.addEventListener('input', function (evt) {
+        if (document.getElementById('input1').value != document.getElementById('input2').value) {
+            document.getElementById('error').innerText = "Пароли не совпадают"
+        } else {
+            document.getElementById('error').innerText = "" 
+        }
+    })
+</script>
+<%- include('../public/partials/footer.ejs') %>

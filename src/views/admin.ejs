@@ -1,0 +1,118 @@
+<%- include('../public/partials/head.ejs') %>
+<section class="main-app bg-dark-black text-light d-flex flex-column justify-content-center align-items-center">
+    <div class="row container-fluid">
+        <div class="col-6">
+            <div class="card bg-dark text-light">
+                <div class="card-body">
+                <h5 class="card-title">Все заказы</h5>
+                <div class="card-text mb-2">
+                    <div class="row">
+                        <div class="col-4">
+                            <p class="m-0">
+                                Название товара
+                            </p>
+                        </div>
+                        <div class="col-4 d-flex justify-content-end">
+                            <p class="m-0">
+                                Количество
+                            </p>
+                        </div>
+                        <div class="col-4 d-flex justify-content-end">
+                            <p class="m-0">
+                                Вес
+                            </p>
+                        </div>
+                    </div>
+                    
+                </div>
+                <% paid.forEach(element => {  %>
+                    <div class="card-text border-bottom border-top border-secondary mb-2">
+                        <div class="row">
+                            <div class="col-4">
+                                <p class="m-0">
+                                    <%= result[element.productid-1].name %>
+                                </p>
+                            </div>
+                            <div class="col-4 d-flex justify-content-end">
+                                <p class="m-0">
+                                    <%= element.quantity  %>
+                                </p>
+                            </div>
+                            <div class="col-4 d-flex justify-content-end">
+                                <p class="m-0" id="weightP">
+                                    <%= result[element.productid-1].weight %> г.
+                                </p>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    
+                <% }); %>
+                
+                <div class="card-text mb-2">
+                    <div class="row">
+                        <div class="col-12 d-flex justify-content-end">
+                            <p class="m-0" id="weightSum">
+                                Вес итого: 
+                            </p>
+                        </div>
+                    </div>
+                    
+                </div>
+            
+            
+                </div>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="card bg-dark text-light h-100">
+                <div class="card-body">
+                    <h5 class="card-title">Визуализация</h5>
+                    <div class="row pb-5 px-5" style="height: 300px;">
+                        <div class="col-2 border border-light cabin mt-5">
+                            
+                        </div>
+                        <div class="col-10 border border-light p-3 d-flex align-items-end">
+                            <div class="border-success-bright w-100 d-flex justify-content-center align-items-center" id="percentH" style="height: 15%;">
+                                <h1><b id="percent">15%</b></h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-6">dasdsa</div>
+        <div class="col-6">dasdsa</div>
+    </div>
+</section>
+
+<script>
+    let elms = document.querySelectorAll("[id='weightP']")
+    let sum = 0
+
+    for(var i = 0; i < elms.length; i++) {
+        console.log(parseInt(elms[i].innerText))
+        sum += parseInt(elms[i].innerText)
+    }
+
+    document.getElementById('weightSum').innerHTML = 'Вес итого: <span id="sum">' + sum/1000 + '</span>/20000 кг.'
+
+    let height = 0
+
+    if (sum/1000 > 20000) {
+        height = 100
+        document.getElementById('sum').classList.add('text-danger')
+    } else {
+        height = (sum/1000)/20000 * 100
+        document.getElementById('sum').classList.add('text-success-bright')
+    }
+
+    console.log(height)
+
+    document.getElementById('percent').innerText = `${height}%`
+    document.getElementById('percentH').style = `height: ${height}%;`
+</script>
+<%- include('../public/partials/footer.ejs') %>

@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap');
+
+
+:root {
+    --radius: 0px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    overflow: hidden;
+    height: 100dvh !important;
+    background-color: transparent !important;
+}
+
+.text-success-bright {
+    color: rgb(0, 223, 0);
+}
+
+.titlebar {
+    border-top-right-radius: var(--radius);
+    border-top-left-radius: var(--radius);
+}
+
+.main-app {
+    background-color: #131518;
+    overflow: hidden;
+    height: 100% !important;
+    border-radius: var(--radius) !important;
+}
+
+.frameBtn {
+    background-color: rgba(0, 0, 0, 0); /* Green */
+    border: none;
+    color: white;
+    user-select: all !important;
+    -webkit-user-select: all !important;
+}
+
+.redBtn:hover {
+    background-color: #aa0404;
+}
+
+.grayBtn:hover {
+    background-color: #d3d3d3;
+}
+
+.side-menu {
+    transition: all .3s ease-in-out;
+}
+
+.cabin {
+    border-top-left-radius: 15px;
+}
+
+.border-success-bright {
+    background-color: rgb(82, 255, 47);
+    border: 1px solid rgb(82, 255, 47) !important;
+    bottom: 0;
+}
+
+.drag {
+    -webkit-app-region: drag;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.scrollable-content::-webkit-scrollbar {
+  display: none;
+}
+
+.form-control {
+    background-color: #1b1d20 !important;
+    color: #d3d3d3 !important;
+}
